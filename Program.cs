@@ -21,11 +21,12 @@ namespace hash_cracker
 
         static void Main(string[] args)
         {
-            void message(String text, bool nl = true, ConsoleColor col = ConsoleColor.White){
+            void message(String text, bool nl = true, ConsoleColor col = ConsoleColor.White, ConsoleColor textcol = ConsoleColor.White){
                 Console.ForegroundColor = col;
                 Console.Write(">>> ");
-                Console.ForegroundColor = ConsoleColor.White;
+                Console.ForegroundColor = textcol;
                 if (nl) { Console.WriteLine(text); } else { Console.Write(text); }
+                Console.ForegroundColor = ConsoleColor.Gray;
             }
 
             void throw_error(String text){
@@ -66,10 +67,13 @@ namespace hash_cracker
             message("Start", col: ConsoleColor.Yellow);
             var watch = System.Diagnostics.Stopwatch.StartNew();
             for(int j = 0; j < passes.Length; j++){
-                if(verbose && j % 1000 == 0) Console.Write($"\r{Math.Round((j+1.0f)/passes.Length*100.0f, 4)}%: {passes[j]}     ");
+                if(verbose && j % 5000 == 0 && j != 0) Console.Write($"\r{Math.Round((j+1.0f)/passes.Length*100.0f, 4)}%:\t {passes[j]}     ");
                 if(MD5Hash(passes[j]).ToLower() == hash){
                     if(verbose) Console.WriteLine("\r                                     ");
-                    message($"Match Found: {passes[j]}", col: ConsoleColor.Green);
+                    message("Match Found! Password: ", nl: false, col: ConsoleColor.Green);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine(passes[j]);
+                    Console.ForegroundColor = ConsoleColor.Gray;
                     watch.Stop();
                     long elapsedMs = watch.ElapsedMilliseconds;
                     message($"End in {elapsedMs} milliseconds ({Convert.ToSingle(elapsedMs)/1000.0f} sec)", col: ConsoleColor.Yellow);
