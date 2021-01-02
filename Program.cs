@@ -30,6 +30,7 @@ namespace hash_cracker
 
             void throw_error(String text){
                 message(text, col: ConsoleColor.Red);
+                Console.ReadLine();
                 Environment.Exit(0);
             }
 
@@ -72,10 +73,12 @@ namespace hash_cracker
                     watch.Stop();
                     long elapsedMs = watch.ElapsedMilliseconds;
                     message($"End in {elapsedMs} milliseconds ({Convert.ToSingle(elapsedMs)/1000.0f} sec)", col: ConsoleColor.Yellow);
+                    Console.ReadLine();
                     return;
                 }
             }
             message("Password not cracked!", col: ConsoleColor.Red);
+            Console.ReadLine();
         }
     }
 }
