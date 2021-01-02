@@ -1,8 +1,9 @@
 # sharp-hash-cracker
 MD5 hash cracker made in C#
 
-# Usage
+## Usage
 
+Exe files are located in [exe/](https://github.com/MattTheCoder-W/sharp-hash-cracker/tree/main/exe) subdirectory.  
 After building project or downloading .exe file:
 
 > SharpCracker.exe
