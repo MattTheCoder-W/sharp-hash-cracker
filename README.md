@@ -12,7 +12,7 @@ Then type all required data and cracking will begin.
 For 40 MB dictionary (with 4 and 5 character long passwords)  
 it took around 19 seconds to find hashed password.
 
-![UsageGif](https://github.com/MattTheCoder-W/sharp-hash-cracker/blob/main/data/giff2.gif?raw=true)
+![UsageGif](https://raw.githubusercontent.com/MattTheCoder-W/sharp-hash-cracker/main/data/giff.gif)
 
 ## Tested on
 
