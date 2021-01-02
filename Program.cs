@@ -59,9 +59,8 @@ namespace hash_cracker
                 break;
             }
 
-            // 09e5b229d7538d925f517f2d79a84599 => toore
             // 7b24afc8bc80e548d66c4e7ff72171c5 => toor
-            // 0d3d238b089a67e34e39b5abf80db19b => rot
+            // 0d3d238b089a67e34e39b5abf80db19b => rot (this will not work with standart dictionary)
 
             message("Start", col: ConsoleColor.Yellow);
             var watch = System.Diagnostics.Stopwatch.StartNew();
